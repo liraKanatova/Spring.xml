@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <context:property-placeholder location="classpath:application.properties"></context:property-placeholder>
+<bean id = "Parrot"
+      class="peaksoft.Parrot">
+
+</bean>
+    <bean id = "Pigeon"
+          class="peaksoft.Pigeon">
+
+    </bean>
+    <bean id = "Bullfinch"
+          class="peaksoft.Bullfinch">
+
+    </bean>
+    <bean id = "ZooShop"
+          class="peaksoft.ZooShop">
+        <constructor-arg name="name" value="${name}"/>
+        <constructor-arg name="age" value="${age}"/>
+        <constructor-arg name="birds">
+            <list>
+                <ref bean="Bullfinch"/>
+                <ref bean="Parrot"/>
+                <ref bean="Pigeon"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+<!--    <bean id = "ZooShop"-->
+<!--          class="peaksoft.ZooShop" >-->
+<!--        <property name="name" value="${name}"/>-->
+<!--        <property name="age" value="${age}"/>-->
+<!--        <property name="birds">-->
+<!--           <list>-->
+<!--               <ref bean="Pigeon"/>-->
+<!--               <ref bean="Parrot"/>-->
+<!--               <ref bean="Bullfinch"/>-->
+<!--           </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+</beans>
